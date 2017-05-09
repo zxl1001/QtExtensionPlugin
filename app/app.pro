@@ -34,7 +34,7 @@ FORMS    += MainWindow.ui \
 
 INCLUDEPATH += $$PWD/../
 
-LIBS += -L$$PWD/../bin -lExtensionSystem
+LIBS += -L$$PWD/../bin -lExtensionSystem -lPluginProtocol
 
 target.path = $$PWD/../bin
 

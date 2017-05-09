@@ -17,6 +17,7 @@
 #include "extensionsystem/pluginspec.h"
 #include "extensionsystem/pluginerroroverview.h"
 #include "extensionsystem/plugindetailsview.h"
+#include "pluginprotocol/pluginprotocolextence.h"
 #include <QMainWindow>
 #include <QSettings>
 
@@ -34,6 +35,8 @@ public:
 
 public slots:
     void pluginObjectAdded(QObject *obj);
+
+    void slotRecivePluginName(const QString &name);
 
 private slots:
     void on_listWidget_doubleClicked(const QModelIndex &index);

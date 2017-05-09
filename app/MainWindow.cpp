@@ -56,6 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
         errorOverview.exec();
         qApp->quit();
     }
+    connect(PluginProtoco::PluginProtocolExtence::instance(), SIGNAL(signalPluginsName(QString)), this, SLOT(slotRecivePluginName(QString)));
 }
 
 MainWindow::~MainWindow()
@@ -71,7 +72,13 @@ void MainWindow::pluginObjectAdded(QObject *obj)
     if(w)
     {
         ui->stackedWidget->addWidget(w);
+        qDebug()<<w->property("MyName").toString();
     }
+}
+
+void MainWindow::slotRecivePluginName(const QString &name)
+{
+    qDebug()<<"Recive the pluging name is:"<<name;
 }
 
 void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
