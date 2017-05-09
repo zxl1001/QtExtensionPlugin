@@ -12,6 +12,7 @@
  */
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
+#include "PluginViewDialog.h"
 
 static const char PLUGIN_PATH[] = "/plugins";
 
@@ -19,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     m_setting(Q_NULLPTR),
-    m_view(new ExtensionSystem::PluginDetailsView(this))
+    m_pluginDetailView(new ExtensionSystem::PluginDetailsView(this))
 {
     ui->setupUi(this);
     QVector<QWidget *> vector;
@@ -32,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->stackedWidget->removeWidget(vector[i]);
     }
 
-    ui->viewDetailFrame->layout()->addWidget(m_view);
+    ui->viewDetailFrame->layout()->addWidget(m_pluginDetailView);
 
     m_setting = new QSettings("ZXL1001");
     QStringList plugingPath;
@@ -55,13 +56,12 @@ MainWindow::MainWindow(QWidget *parent) :
         errorOverview.exec();
         qApp->quit();
     }
-    connect(this, SIGNAL(aboutToQuit()), &plgManager, SLOT(shutdown()));
-
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    m_plgManager.shutdown();
 }
 
 void MainWindow::pluginObjectAdded(QObject *obj)
@@ -74,14 +74,15 @@ void MainWindow::pluginObjectAdded(QObject *obj)
     }
 }
 
-void MainWindow::on_pluginsDetailListViewBtn_clicked()
-{
-
-}
-
 void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 {
     const ExtensionSystem::PluginSpecSet plugins = ExtensionSystem::PluginManager::plugins();
     ui->stackedWidget->setCurrentIndex(index.row());
-    m_view->update(plugins[index.row()]);
+    m_pluginDetailView->update(plugins[index.row()]);
+}
+
+void MainWindow::on_managePluginsBtn_clicked()
+{
+    PluginViewDialog d;
+    d.exec();
 }

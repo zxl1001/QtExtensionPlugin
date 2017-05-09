@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>715</width>
-    <height>479</height>
+    <width>567</width>
+    <height>510</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,1">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -48,6 +48,13 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
+       <item>
+        <widget class="QPushButton" name="managePluginsBtn">
+         <property name="text">
+          <string>Manage plugins</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QListWidget" name="listWidget">
          <property name="maximumSize">
@@ -103,7 +110,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>715</width>
+     <width>567</width>
      <height>22</height>
     </rect>
    </property>

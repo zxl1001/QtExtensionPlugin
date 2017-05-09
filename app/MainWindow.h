@@ -32,21 +32,18 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-Q_SIGNALS:
-    void aboutToQuit();
 public slots:
     void pluginObjectAdded(QObject *obj);
 
 private slots:
-    void on_pluginsDetailListViewBtn_clicked();
-
     void on_listWidget_doubleClicked(const QModelIndex &index);
+    void on_managePluginsBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
     QSettings *m_setting;
-    ExtensionSystem::PluginManager plgManager;
-    ExtensionSystem::PluginDetailsView *m_view;
+    ExtensionSystem::PluginManager m_plgManager;
+    ExtensionSystem::PluginDetailsView *m_pluginDetailView;
 };
 
 #endif // MAINWINDOW_H

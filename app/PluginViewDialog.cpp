@@ -6,19 +6,27 @@
  *      This software is furnished under license and may be used or
  *      copied only in accordance with the terms of such license.
  *******************************************************************************
- * @file    main.cpp
+ * @file    PluginViewDialog.cpp
  * @brief
  *******************************************************************************
  */
-#include "MainWindow.h"
-#include <QCoreApplication>
-#include <QApplication>
+#include "PluginViewDialog.h"
+#include "ui_PluginViewDialog.h"
+#include "extensionsystem/pluginview.h"
 
-int main(int argc, char *argv[])
+#include <QVBoxLayout>
+
+PluginViewDialog::PluginViewDialog(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::PluginViewDialog)
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    ui->setupUi(this);
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->addWidget(new ExtensionSystem::PluginView(this));
+    setLayout(layout);
+}
 
-    return a.exec();
+PluginViewDialog::~PluginViewDialog()
+{
+    delete ui;
 }

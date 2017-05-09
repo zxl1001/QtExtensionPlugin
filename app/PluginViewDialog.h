@@ -6,19 +6,29 @@
  *      This software is furnished under license and may be used or
  *      copied only in accordance with the terms of such license.
  *******************************************************************************
- * @file    main.cpp
+ * @file    PluginViewDialog.h
  * @brief
  *******************************************************************************
  */
-#include "MainWindow.h"
-#include <QCoreApplication>
-#include <QApplication>
+#ifndef PLUGINVIEWDIALOG_H
+#define PLUGINVIEWDIALOG_H
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+#include <QDialog>
 
-    return a.exec();
+namespace Ui {
+class PluginViewDialog;
 }
+
+class PluginViewDialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit PluginViewDialog(QWidget *parent = 0);
+    ~PluginViewDialog();
+
+private:
+    Ui::PluginViewDialog *ui;
+};
+
+#endif // PLUGINVIEWDIALOG_H
