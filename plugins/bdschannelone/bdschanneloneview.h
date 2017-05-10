@@ -28,6 +28,7 @@ public:
     explicit BDSChannelOneView(QWidget *parent = 0);
     ~BDSChannelOneView();
 
+
 private slots:
     void on_pushButton_clicked();
 

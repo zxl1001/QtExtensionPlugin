@@ -20,8 +20,10 @@ class PluginProtocolExtence : public QObject
 {
     Q_OBJECT
 public:
+
     virtual ~PluginProtocolExtence();
     static PluginProtocolExtence *instance();
+
 signals:
     void signalPluginsName(const QString &name);
 public slots:

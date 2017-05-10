@@ -26,10 +26,12 @@ BDSChannelOneView::~BDSChannelOneView()
 {
     delete ui;
 }
-//namespace end
-}
 
-void BDSChannelOne::BDSChannelOneView::on_pushButton_clicked()
+void BDSChannelOneView::on_pushButton_clicked()
 {
     emit PluginProtoco::PluginProtocolExtence::instance()->signalPluginsName(this->property("MyName").toString());
 }
+//namespace end
+}
+
+

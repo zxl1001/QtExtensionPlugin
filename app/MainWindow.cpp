@@ -13,6 +13,7 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "PluginViewDialog.h"
+#include "PluginInterFace.h"
 
 static const char PLUGIN_PATH[] = "/plugins";
 

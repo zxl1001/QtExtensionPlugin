@@ -12,6 +12,7 @@ BDSChannelOnePlugin::BDSChannelOnePlugin() :
 {
 }
 
+
 bool BDSChannelOnePlugin::initialize(const QStringList &arguments, QString *errorString)
 {
     Q_UNUSED(arguments)
