@@ -12,16 +12,14 @@
  */
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
-#include "PluginViewDialog.h"
-#include "PluginInterFace.h"
+#include "plugindialog.h"
 
 static const char PLUGIN_PATH[] = "/plugins";
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    m_setting(Q_NULLPTR),
-    m_pluginDetailView(new ExtensionSystem::PluginDetailsView(this))
+    m_setting(Q_NULLPTR)
 {
     ui->setupUi(this);
     QVector<QWidget *> vector;
@@ -33,9 +31,6 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         ui->stackedWidget->removeWidget(vector[i]);
     }
-
-    ui->viewDetailFrame->layout()->addWidget(m_pluginDetailView);
-
     m_setting = new QSettings("ZXL1001");
     QStringList plugingPath;
     plugingPath.append(qApp->applicationDirPath() + QLatin1String(PLUGIN_PATH));
@@ -84,13 +79,12 @@ void MainWindow::slotRecivePluginName(const QString &name)
 
 void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 {
-    const ExtensionSystem::PluginSpecSet plugins = ExtensionSystem::PluginManager::plugins();
     ui->stackedWidget->setCurrentIndex(index.row());
-    m_pluginDetailView->update(plugins[index.row()]);
+
 }
 
 void MainWindow::on_managePluginsBtn_clicked()
 {
-    PluginViewDialog d;
+    PluginDialog d(this);
     d.exec();
 }

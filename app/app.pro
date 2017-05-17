@@ -24,13 +24,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         MainWindow.cpp \
-    PluginViewDialog.cpp
+    plugindialog.cpp
 
 HEADERS  += MainWindow.h \
-    PluginViewDialog.h
+    plugindialog.h
 
-FORMS    += MainWindow.ui \
-    PluginViewDialog.ui
+FORMS    += MainWindow.ui
 
 INCLUDEPATH += $$PWD/../
 

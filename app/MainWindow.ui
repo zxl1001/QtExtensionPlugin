@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QFrame" name="frame_2">
       <property name="minimumSize">
@@ -35,7 +35,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,1">
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -72,35 +72,12 @@
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="viewDetailFrame">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>344</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>344</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3"/>
+        <widget class="QStackedWidget" name="stackedWidget">
+         <widget class="QWidget" name="page"/>
+         <widget class="QWidget" name="page_2"/>
         </widget>
        </item>
       </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QStackedWidget" name="stackedWidget">
-      <widget class="QWidget" name="page"/>
-      <widget class="QWidget" name="page_2"/>
      </widget>
     </item>
    </layout>

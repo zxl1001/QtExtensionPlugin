@@ -46,7 +46,6 @@ private:
     Ui::MainWindow *ui;
     QSettings *m_setting;
     ExtensionSystem::PluginManager m_plgManager;
-    ExtensionSystem::PluginDetailsView *m_pluginDetailView;
 };
 
 #endif // MAINWINDOW_H
